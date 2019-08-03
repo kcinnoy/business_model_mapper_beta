@@ -1,2 +1,9 @@
-<h1>Businesses#new</h1>
-<p>Find me in app/views/businesses/new.html.erb</p>
+<h1>Create Business</h1>
+
+<%= form_for @business do |f| %>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %><br /><br />
+
+  <%= f.submit 'Create Business' %>
+
+<% end %>

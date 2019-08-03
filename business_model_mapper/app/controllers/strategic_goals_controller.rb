@@ -1,8 +1,9 @@
 class StrategicGoalsController < ApplicationController
+  
   def new
   end
 
-  def create
+  def create    
   end
 
   def destroy
