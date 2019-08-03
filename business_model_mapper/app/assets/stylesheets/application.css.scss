@@ -18,6 +18,7 @@
   --color-black: #000;
   --color-white: #fff;
   --color-grey-light: #f4f2f2;
+  --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3)
 }
 
 
@@ -25,21 +26,24 @@
    max-width: 120rem;
    margin: 8rem auto;
    background-color: var(--color-grey-light);
-   box-shadow: 0 2rem 6rem rgba(0,0,0,.3)
+   box-shadow: var(--shadow-dark);
+   min-height: 50rem
 }
 
-// .header {
-
-// }
+.header {
+   height: 7rem;
+   background-color: #fff;
+   border-bottom: var(--color-grey-light);
+}
 
 // .content {
 
 // }
 
-// .sidebar {
+.sidebar {
+   background-color: darkgray;
+}
 
-// }
-
-// .map {
-
-// }
+.map {
+   background-color: #fff;
+}
