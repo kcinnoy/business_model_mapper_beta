@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_08_06_235236) do
+=======
+ActiveRecord::Schema.define(version: 2019_08_05_191744) do
+>>>>>>> f845ca5... updated resources model with qty
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"

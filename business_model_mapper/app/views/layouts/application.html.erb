@@ -12,20 +12,33 @@
   <body>
     <div class="container">
       <header class="header">
-        <img src="images/logo.png" alt="" class="logo">
+        <%= image_tag("logo.png", alt: "logo", class: "logo") %>
+
         <form action="#" class="search">
-          <input type="text" class="search__input" placeholder="search for resource, approach etc">
+          <input type="text" class="search__input" placeholder="Search for resource, approach etc">
           <button class="search__button">
-            <svg class="search__icon">
-              <use xlink:href="image_url('sprite-main.svg#icon-magnifying-glass')"></use>
-            </svg>
+            <%= svg_asset("magnifying-glass", class: "search__icon") %>
           </button>
         </form>
+
+        <nav class="user-nav">
+          <div class="user-nav__icon-box">
+            <%= svg_asset("line-graph") %>
+          </div>
+          <div class="user-nav__icon-box">
+            <%= svg_asset("chat") %>
+          </div> 
+          <div class="user-nav__user">
+            <%= image_tag("user.jpg", alt: "User photo", class: "user-nav__user-photo") %>
+            <span class="user-nav__user-name">Jonas</span>
+          </div>
+        </nav>
+
+      User 
+      <%= current_user %>
+
+
       </header>
-
-       <%= current_user.name %>
-      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-
       <div class="content">
         <nav class="sidebar">
           navigation
@@ -40,3 +53,8 @@
     <%= yield %>
   </body>
 </html>
+
+
+ <svg class="search__icon">
+              <use xlink:href="image_url('sprite-main.svg#icon-magnifying-glass')"></use>
+            </svg>

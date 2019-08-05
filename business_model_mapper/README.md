@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+#NOTES
+
+Reasons for choosing this project
+
+Interested in how to visualise hierachical data strutures. considered svg and pure css based approaches, eventually choosing css. this fitted in well with the css flexbox and css grid approach for front end design.
+
+decided on representing the business model canvas as a heirachical structure. business model canvas is an approach used by some start up entrepreuneurs for analysis on a startups feasibility.
