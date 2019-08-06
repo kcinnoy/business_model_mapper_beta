@@ -15,9 +15,20 @@
  */
 
  :root {
-  --color-black: #000;
-  --color-white: #fff;
-  --color-grey-light: #f4f2f2;
+   --color-red: #eb2f64;
+   --color-red-light: #ff3366;
+   --color-red-dark: #ba265d;
+
+   --color-black: #000;
+   --color-white: #fff;
+   --color-grey-light-1: #faf9f9;
+   --color-grey-light-2: #f4f2f2;
+   --color-grey-light-3: #ccc;
+
+   --color-grey-dark-1: #333;
+   --color-grey-dark-2: #777;
+   --color-grey-dark-3: #999;
+
   --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3)
 }
 
@@ -25,15 +36,20 @@
 .container {
    max-width: 120rem;
    margin: 8rem auto;
-   background-color: var(--color-grey-light);
+   background-color: var(--color-grey-light-2);
    box-shadow: var(--shadow-dark);
    min-height: 50rem
 }
 
 .header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   font-size: 1.4rem;
    height: 7rem;
    background-color: #fff;
-   border-bottom: var(--color-grey-light);
+   border-bottom: var(--color-grey-light-3);
 }
 
 // .content {
@@ -46,4 +62,125 @@
 
 .map {
    background-color: #fff;
+}
+
+/////// Logo
+
+.logo {
+   height: 3.25rem;
+   margin-left: 3rem;
+
+}
+
+
+/////// Search
+
+.search {
+
+   flex: 0 0 40%;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   &__input {
+      font-family: inherit;
+      font-size: inherit;
+      background-color: var(--color-grey-light-2);
+      border: none;
+      padding: .7rem 2rem;
+      border-radius: 100px;
+      width: 90%;
+      transition: all .2s;
+      margin-right: -3.25rem;
+
+      &:focus {
+         outline: none;
+         width: 100%;
+         background-color: var(--color-grey-light-3)
+      }
+
+      &::-webkit-input-placeholder{
+         font-weight: 100;
+         color: var(--color-grey-light-3)
+      }
+   }
+
+   &__input:focus + &__button {
+      background-color: var(--color-grey-light-3)
+   }
+
+   &__button {
+      border: none;
+      background-color: var(--color-grey-light-2);
+      transition: all .2s;
+      border-radius: 100%;
+
+      &:focus {
+         outline:  none;
+      }
+
+      &:active {
+         transform: translateY(2px);
+      }
+
+      
+   }
+
+   &__icon {
+      height: 2rem;
+      width: 2rem;
+      fill: var(--color-grey-dark-3)
+   }
+}
+
+
+/////// User Nav
+
+.user-nav {
+   background-color: greenyellow;
+   display: flex;
+   align-self: stretch;
+
+   & > * {
+      padding: 0 2rem;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      align-items: center
+   }
+
+   & > *:hover {
+      background-color: var(--color-grey-light-2);
+   }
+
+   &__icon-box {
+     
+   }
+
+   &__icon {
+      height: 2.25rem;
+      width: 2.25rem;
+      fill: var(--color-grey-dark-2)
+   }
+
+   // &__notification {
+      // not used yet
+   // }
+
+   &__user {
+      
+   }
+
+   &__user-photo{
+      height: 3.75rem;
+      border-radius: 50%;
+   }
+
+   &__user-name {
+      
+   }
+
+
+
 }
