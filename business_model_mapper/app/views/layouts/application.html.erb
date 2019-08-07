@@ -11,6 +11,7 @@
 
   <body>
     <div class="container">
+
       <header class="header">
         <%= image_tag("logo.png", alt: "logo", class: "logo") %>
 
@@ -35,31 +36,24 @@
         </nav>
       </header>
 
-      <% if user_signed_in? %>
-          <%= current_user.name %>
-        <% else %>
-        <%= link_to 'Sign In', new_user_session_path %>
-      <% end %>
-      <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
-
-
-
-      <div class="content">
-        <nav class="sidebar">
+      <div class="sidebar">
           navigation
-        </nav>
-        <main class="map">
-          map
-        </main>
+            <% if user_signed_in? %>
+                <%= current_user.name %>
+             <% else %>
+                <%= link_to 'Sign In', new_user_session_path %>
+            <% end %>
+            <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
       </div>
+        
+      <section class="map">
+        map
+      </section>
+
+      <footer class="footer">
+        footer
+      </footer>
     
-    </div>
-    
-    <%= yield %>
   </body>
+  
 </html>
-
-
- <svg class="search__icon">
-              <use xlink:href="image_url('sprite-main.svg#icon-magnifying-glass')"></use>
-            </svg>
