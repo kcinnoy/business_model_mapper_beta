@@ -33,12 +33,17 @@
             <span class="user-nav__user-name">Jonas</span>
           </div>
         </nav>
-
-      User 
-      <%= current_user %>
-
-
       </header>
+
+      <% if user_signed_in? %>
+          <%= current_user.name %>
+        <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+      <% end %>
+      <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+
+
+
       <div class="content">
         <nav class="sidebar">
           navigation
