@@ -58,6 +58,7 @@
                     <li>
                         <%= link_to sg.name, strategic_goal_path%> <br>
                        <%= sg.approach.nil? ? "Approach TBC" : sg.approach  %>
+                        <%= link_to 'Create project', new_project_path(id: sg.id)%> <br>
                       
                         <ul>
                             <li>
