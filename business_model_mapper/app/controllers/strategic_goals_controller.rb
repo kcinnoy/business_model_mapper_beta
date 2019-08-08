@@ -3,6 +3,10 @@ class StrategicGoalsController < ApplicationController
   def new
   end
 
+  def show
+    @strategic_goal =  StrategicGoal.find(params[:id])
+  end
+
   def create    
   end
 
@@ -12,3 +16,5 @@ class StrategicGoalsController < ApplicationController
   def update
   end
 end
+
+

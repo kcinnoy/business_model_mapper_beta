@@ -1,6 +1,72 @@
 <h1>Businesses#Show</h1>
 
-<%= @business.name %>
+
 
 <%= @business.strategic_goals[0].name %>
 
+
+
+<div class="tree">
+	<ul>
+		<li>
+			<a href="#"><%= @business.name %></a>
+			<ul>
+				<li>
+					<a href="#">Child</a>
+					<ul>
+						<li>
+							<a href="#">Grand Child</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Child</a>
+					<ul>
+						<li><a href="#">Grand Child</a></li>
+						<li>
+							<a href="#">Grand Child</a>
+							<ul>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#">Grand Child</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+ <br>
+ <br>
+
+
+
+ <div class="tree">
+	<ul>
+		<li>
+			<a href="#"><%= @business.name %></a>
+			<ul>
+                <% @business.strategic_goals.each do |sg| %>
+                    <li>
+                        <%= link_to sg.name, strategic_goal_path%> <br>
+                       <%= sg.approach.nil? ? "Approach TBC" : sg.approach  %>
+                      
+                        <ul>
+                            <li>
+                                <a href="#">Grand Child</a>
+                            </li>
+                        </ul>
+                    </li>
+                <% end %>
+			</ul>
+		</li>
+	</ul>
+</div>

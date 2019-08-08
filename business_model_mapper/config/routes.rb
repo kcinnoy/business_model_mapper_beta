@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations'}
   
   resources :businesses
-  resource :strategic_goals, only: [:new, :create, :show]
-  resource :projects, only: [:new, :create, :show]
-  resource :resources, only: [:new, :create, :show]
+  resources :strategic_goals, only: [:new, :create, :show]
+  resources :projects, only: [:new, :create, :show]
+  resources :resources, only: [:new, :create, :show]
 
   # resources :users, only: [:new, :create, :show]
   # get '/signin' => 'session#new'

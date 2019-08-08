@@ -21,7 +21,10 @@ class BusinessesController < ApplicationController
 
 
   def show
+    
+    @businesses = Business.all
     @business = Business.find(params[:id])
+    @strategic_goals = @business.strategic_goals
   end
 
   def business_params
