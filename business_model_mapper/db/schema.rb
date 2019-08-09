@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_235236) do
+ActiveRecord::Schema.define(version: 2019_08_09_093331) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_08_06_235236) do
     t.integer "resource_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "business_id"
+    t.index ["business_id"], name: "index_projects_on_business_id"
     t.index ["resource_id"], name: "index_projects_on_resource_id"
     t.index ["strategic_goal_id"], name: "index_projects_on_strategic_goal_id"
   end
@@ -35,10 +37,12 @@ ActiveRecord::Schema.define(version: 2019_08_06_235236) do
     t.integer "business_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type"
+    t.string "resource_type"
     t.decimal "total_cost_year"
     t.integer "qty"
+    t.integer "project_id"
     t.index ["business_id"], name: "index_resources_on_business_id"
+    t.index ["project_id"], name: "index_resources_on_project_id"
   end
 
   create_table "strategic_goals", force: :cascade do |t|

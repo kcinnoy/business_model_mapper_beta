@@ -1,0 +1,24 @@
+<h1>New Post</h1>
+
+<%= form_for @resource do |f| %>
+
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <br/>
+  <br/>
+  <%= f.label "Type" %>
+  <%= f.text_area :type %>
+  <br/>
+  <br/>
+  <%= f.collection_check_boxes :strategic_goal_ids, Strategic_goal.all, :id, :name %>
+  <br/>
+  <br/>
+  <%= f.fields_for :strategic_goals, resource.strategic_goals.build do |strategic_goals_fields| %>
+    <%= strategic_goals_fields.label :name, "Category" %>
+    <%= strategic_goals_fields.text_field :name %>
+  <% end %>
+  <br/>
+  <br/>
+  <%= f.submit %>
+
+<% end %>

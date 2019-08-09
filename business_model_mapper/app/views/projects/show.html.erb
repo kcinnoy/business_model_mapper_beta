@@ -1,2 +1,10 @@
 
-<%= @project.strategic_goal %>
+<%= @project.name %>
+
+    <% @project.resources.each do |r| %>
+        <ul>   
+            <li> 
+                <%= r.name %>
+            </li >
+        </ul> 
+    <% end %>

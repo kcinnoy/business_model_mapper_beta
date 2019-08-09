@@ -1,6 +1,7 @@
 class Resource < ApplicationRecord
-  belongs_to :business
+  belongs_to :business, optional: true
+  belongs_to :projects, optional: true
 
-  has_many :projects
-  has_many :strategic_goals, through: :projects
+  accepts_nested_attributes_for :projects, reject_if: :all_blank, allow_destroy: true
+
 end
