@@ -1,15 +1,16 @@
 <h1>Businesses#Show</h1>
 
 
+<%#=
 
-<%= @business.strategic_goals[0].name %>
+ @business.strategic_goals[0].name
 
 
 
 <div class="tree">
 	<ul>
 		<li>
-			<a href="#"><%= @business.name %></a>
+	
 			<ul>
 				<li>
 					<a href="#">Child</a>
@@ -43,9 +44,9 @@
 			</ul>
 		</li>
 	</ul>
-</div>
- <br>
- <br>
+</div> %>
+ <br/>
+ <br/>
 
 
 
@@ -57,12 +58,11 @@
                 <% @business.strategic_goals.each do |sg| %>
                     <li>
                         <%= link_to sg.name, strategic_goal_path%> <br>
-                       <%= sg.approach.nil? ? "Approach TBC" : sg.approach  %>
+                       <%= sg.approach.nil? ? "Approach TBC" : sg.approach%>
                         <%= link_to 'Create project', new_project_path(strategic_id: sg.id)%> <br>
-                      
                         <ul>
                             <li>
-                                <a href="#">Grand Child</a>
+								<a href="#"><%= @business.strategic_goals.first.projects.first.name %></a>         
                             </li>
                         </ul>
                     </li>
