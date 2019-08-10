@@ -1,10 +1,12 @@
 
-<%= form_with(model: @project, local: true) do |p| %>
-    
-    <%= p.label :name %><br />
-    <%= p.text_field :name %><br /><br />
+<%= form_for [@strategic_goal,@project] do |f| %>
 
-    <%= p.fields_for :resources do |r| %>
+    <%= f.hidden_field :strategic_goal_id %>
+
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br /><br />
+
+    <%= f.fields_for :resources do |r| %>
         <%= r.label :name %><br />
         <%= r.text_field :name %><br />
         <%= r.label :resource_type %><br />
@@ -12,13 +14,6 @@
         <%= r.label :Qty %><br />
         <%= r.number_field :qty %><br />
     <% end %>
-
-    <%= p.fields_for @strategic_goal do |r| %>
-        <%= r.label :id %><br />
-        <%= r.text_field :id %><br />
-    <% end %>
-
-
         
- <%= p.submit 'Create Project' %>
+ <%= f.submit 'Create Project' %>
 <% end %>

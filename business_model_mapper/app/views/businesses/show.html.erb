@@ -59,10 +59,10 @@
                     <li>
                         <%= link_to sg.name, strategic_goal_path%> <br>
                        <%= sg.approach.nil? ? "Approach TBC" : sg.approach%>
-                        <%= link_to 'Create project', new_project_path(strategic_id: sg.id)%> <br>
+                        <%= link_to 'Create project', new_strategic_goal_project_path(strategic_goal_id: sg.id)%> <br>
                         <ul>
                             <li>
-								<a href="#"><%= @business.strategic_goals.first.projects.first.name %></a>         
+								<a href="#"><%#= @business.strategic_goals.first.projects.first.name %></a>         
                             </li>
                         </ul>
                     </li>
