@@ -45,25 +45,28 @@
 		</li>
 	</ul>
 </div> %>
- <br/>
- <br/>
-
-
 
  <div class="tree">
 	<ul>
-		<li>
+		<li class="map-body">
 			<a href="#"><%= @business.name %></a>
 			<ul>
                 <% @business.strategic_goals.each do |sg| %>
-                    <li>
-                        <%= link_to sg.name, strategic_goal_path%> <br>
-                       <%= sg.approach.nil? ? "Approach TBC" : sg.approach%>
+                    <li >
+						<div class="sg-box">
+                    		<div class ="sg-box__head"><%= sg.name %></div>
+                       		<div class="sg-box__approach"><%= sg.approach.nil? ? "Approach TBC" : sg.approach%></div>
                         <%= link_to 'Create project', new_strategic_goal_project_path(strategic_goal_id: sg.id)%> <br>
+						</div>
                         <ul>
-                            <li>
-								<a href="#"><%#= @business.strategic_goals.first.projects.first.name %></a>         
-                            </li>
+							<% sg.projects.each do |project| %>
+								<li>
+									<div class="project-box">
+										<div class ="sg-box__head"><%= project.name %></div>
+										<div class =""><%= project.name %></div>
+									</div>
+								</li>
+							<% end %>
                         </ul>
                     </li>
                 <% end %>
