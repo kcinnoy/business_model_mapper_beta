@@ -1,5 +1,6 @@
 
 <%= form_for [@strategic_goal,@project] do |f| %>
+    <%#= render "form" %>
 
     <%= f.hidden_field :strategic_goal_id %>
 
@@ -16,4 +17,5 @@
     <% end %>
         
  <%= f.submit 'Create Project' %>
+
 <% end %>

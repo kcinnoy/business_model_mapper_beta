@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   
   resources :businesses
   resources :strategic_goals, only: [:new, :create, :show] do
-    resources :projects, only: [:index, :new, :create, :show]
+    resources :projects, only: [:index, :new, :create, :show, :edit]
   end
-  resources :resources, only: [:new, :create, :show]
+  resources :resources, only: [:new, :create, :show, :edit]
 
   # resources :users, only: [:new, :create, :show]
   # get '/signin' => 'session#new'

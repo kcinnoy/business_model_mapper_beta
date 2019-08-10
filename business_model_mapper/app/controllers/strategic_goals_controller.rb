@@ -5,6 +5,8 @@ class StrategicGoalsController < ApplicationController
 
   def show
     @strategic_goal =  StrategicGoal.find(params[:id])
+    @business = @strategic_goal.business
+    redirect_to businesses_path
   end
 
   def create    
