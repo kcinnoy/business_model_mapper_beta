@@ -10,7 +10,7 @@
         <%= r.label :name %><br />
         <%= r.text_field :name %><br />
         <%= r.label :resource_type %><br />
-        <%= r.text_field :resource_type %><br />
+        <%= r.select :resource_type, options_for_select(["Free", "Basic", "Advanced", "Super Platinum"]) %><br />
         <%= r.label :Qty %><br />
         <%= r.number_field :qty %><br />
     <% end %>

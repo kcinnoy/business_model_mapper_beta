@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
         @project = Project.new(project_params)
         @strategic_goal = @project.strategic_goal_id
 
-      
         # @project.strategic_goal = StrategicGoal.find(params[:project][:strategic_goal][:id])
         if @project.save
           redirect_to strategic_goal_project_path(@strategic_goal,@project)
@@ -45,12 +44,12 @@ class ProjectsController < ApplicationController
             resources_attributes:[:name,:resource_type, :total_cost_year, :qty ]) 
     end
 
-    def nested_project_params
-        params.require(:strategic_goal).permit(:name, :id,
-            project_attributes:[:name,
-                resources_attributes:[:name,:resource_type, :total_cost_year, :qty]
-            ]
-        )
-    end
+    # def nested_project_params
+    #     params.require(:strategic_goal).permit(:name, :id,
+    #         project_attributes:[:name,
+    #             resources_attributes:[:name,:resource_type, :total_cost_year, :qty]
+    #         ]
+    #     )
+    # end
 
 end
