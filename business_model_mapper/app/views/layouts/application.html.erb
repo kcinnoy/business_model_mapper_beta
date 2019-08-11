@@ -13,10 +13,14 @@
     <div class="container">
 
       <header class="header">
-        <%= image_tag("logo.png", alt: "logo", class: "logo") %>
+        <%#= image_tag("logo.png", alt: "logo", class: "logo") %>
+        <%#= svg_asset("magnifying-glass", class: "logo") %>
+        <div class="logo">
+          Business Model Mapper
+        </div>
 
         <form action="#" class="search">
-          <input type="text" class="search__input" placeholder="Search for resource, approach etc">
+          <input type="text" class="search__input" placeholder="Search for resource, project etc">
           <button class="search__button">
             <%= svg_asset("magnifying-glass", class: "search__icon") %>
           </button>
@@ -24,26 +28,28 @@
 
         <nav class="user-nav">
           <div class="user-nav__icon-box">
-            <%= svg_asset("line-graph") %>
+            <%= svg_asset("bar-graph", class:"user-nav__icon-box__icon") %>
           </div>
           <div class="user-nav__icon-box">
-            <%= svg_asset("chat") %>
+            <%= svg_asset("flow-tree", class:"user-nav__icon-box__icon") %>
           </div> 
           <div class="user-nav__user">
-            <%= image_tag("user.jpg", alt: "User photo", class: "user-nav__user-photo") %>
-            <span class="user-nav__user-name">Jonas</span>
+            <%#= image_tag("user.jpg", alt: "User photo", class: "user-nav__user-photo") %>
+            <%= svg_asset("flow-tree", class:"user-nav__icon-box__icon") %>
+            <span class="user-nav__user-name">
+              <% if user_signed_in? %>
+                <%= current_user.name %><br />
+                <%= link_to '( Logout)', destroy_user_session_path, :method => :delete %> 
+              <% else %>
+                <%= link_to 'Sign In', new_user_session_path %>
+              <% end %>         
+            </span>
           </div>
         </nav>
       </header>
 
       <div class="sidebar">
-          navigation
-            <% if user_signed_in? %>
-                <%= current_user.name %>
-             <% else %>
-                <%= link_to 'Sign In', new_user_session_path %>
-            <% end %>
-            <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+          Configuration or Settings <br />
       </div>
         
       <section class="map">

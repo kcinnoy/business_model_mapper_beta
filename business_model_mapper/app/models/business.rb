@@ -8,21 +8,23 @@ class Business < ApplicationRecord
     self.strategic_goals.create(
       [
         {
-        name: "SG1",
-        description: "SG1 description"
+        name: "Customer segments",
+        description: "The different groups of people or organisations a business aims to reach and serve"
         },
         {
-        name: "SG2",
-        description: "SG2 description"
+        name: "Value propositions",
+        description: "The bundle of products and services that create value for a specific Customer Segment"
         },
         {
-        name: "SG3",
-        description: "SG3 description"
-        }
+        name: "Revenue streams",
+        description: "The cash a company generates from each Customer Segment"
+        },
+        {
+        name: "Channels",
+        description: "How a company communicates with and reaches its Customer Segments to deliver a Value Proposition"
+        },
       ]
     )
   end
-
-  # accepts_nested_attributes_for :strategic_goals
 
 end
