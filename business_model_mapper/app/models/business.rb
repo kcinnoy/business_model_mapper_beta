@@ -4,7 +4,7 @@ class Business < ApplicationRecord
   has_many :strategic_goals
   has_many :resources
 
-  after_save do
+  after_create do
     self.strategic_goals.create(
       [
         {
