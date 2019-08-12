@@ -58,7 +58,7 @@ Simple Business Model creation for StartUps
    						<%= svg_asset("pencil") %>
 					<% end %>
 				</div>
-				<div class="business-box__description"><%#= @business.description.nil? ? "Description TBC" : @business.description%></div>
+				<div class="business-box__description"><%= @business.description.nil? ? "Description TBC" : @business.description%></div>
 			</div>
 			<ul>
                 <% @business.strategic_goals.each do |sg| %>
@@ -71,17 +71,32 @@ Simple Business Model creation for StartUps
 								<% end %>
 							</div>
                        		<div class="sg-box__description"><%= sg.description.nil? ? "Description TBC" : sg.description%></div>
-                        <%= link_to 'Create project', new_strategic_goal_project_path(strategic_goal_id: sg.id)%> <br>
 						</div>
                         <ul>
-							<% sg.projects.each do |project| %>
-								<li>
-									<div class="project-box">
-										<div class ="sg-box__head"><%= project.name %></div>
-										<div class =""><%= project.name %></div>
-									</div>
-								</li>
-							<% end %>
+							<li>
+								<div class= "create-link">
+									<%= link_to 'Create project', new_strategic_goal_project_path(strategic_goal_id: sg.id)%>
+								</div>
+									<ul>
+									<% sg.projects.each do |project| %>
+										<li>
+											<div class="project-box">
+												<div class ="project-box__head">
+													<div class= "project-box__head__content"><%= project.name %></div>
+													<%= link_to edit_strategic_goal_project_path(project.id) do %>
+   									 					<%= svg_asset("pencil") %>
+													<% end %>
+												</div>
+												<div class="project-box__body">
+													Resources
+												</div>
+											</div>
+
+											
+										</li>
+									<% end %>
+									</ul>
+							</li>	
                         </ul>
                     </li>
                 <% end %>
