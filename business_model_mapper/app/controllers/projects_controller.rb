@@ -35,9 +35,18 @@ class ProjectsController < ApplicationController
     end
 
     def edit
-        @project = Project.new(strategic_goal_id: params[:strategic_goal_id])
+        @project = Project.find(params[:id])
         @strategic_goal = StrategicGoal.find(params[:strategic_goal_id])
+        @resources = @project.resources
     end
+
+    def update
+        @project = Project.find(params[:id])
+        @resources = @project.resources
+        @project.update(project_params)
+        
+        redirect_to strategic_goal_project_path(@project)
+      end 
 
     def update
         

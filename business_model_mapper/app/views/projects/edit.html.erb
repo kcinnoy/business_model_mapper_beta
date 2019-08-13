@@ -1,4 +1,6 @@
 
+Projects Edit Page
+
 <%= form_for [@strategic_goal,@project] do |f| %>
     <%#= render "form" %>
 
@@ -7,15 +9,17 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %><br /><br />
 
-    <%= f.fields_for :resources do |r| %>
-        <%= r.label :name %><br />
-        <%= r.text_field :name %><br />
-        <%= r.label :resource_type %><br />
-        <%= r.select :resource_type, options_for_select(["Staff", "Hardware", "Software", "Fixture"]) %><br />
-        <%= r.label :Qty %><br />
-        <%= r.number_field :qty %><br />
+    <% @resources.each do |resource| %>
+        <%= f.fields_for resource do |r| %>
+            <%= r.label :name %><br />
+            <%= r.text_field :name %><br />
+            <%= r.label :resource_type %><br />
+            <%= r.select :resource_type, options_for_select(["Staff", "Hardware", "Software", "Fixture"]) %><br />
+            <%= r.label :Qty %><br />
+            <%= r.number_field :qty %><br />
+        <% end %>
     <% end %>
         
- <%= f.submit 'Create Project' %>
+ <%= f.submit 'Edit Project' %>
 
 <% end %>
