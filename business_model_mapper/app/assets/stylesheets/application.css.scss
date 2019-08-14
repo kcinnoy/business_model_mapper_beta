@@ -191,9 +191,11 @@
       // not used yet
    // }
 
-   // &__user {
-      
-   // }
+   &__user__icon {
+      padding: 0.6rem;
+      border: 1px solid var(--color-grey-light-3);
+      border-radius: 50px;
+   }
 
    &__user-photo{
       height: 3.75rem;
@@ -285,9 +287,24 @@
 }
 
 .create-link {
-   @extend .sg-box;
-   width: 9rem;
-   border-radius: 150px
+  
+   flex-direction: row;
+   display: flex;
+   width: 7rem;
+   border-radius: 150px;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+   font-size: 0.9rem;
+   border: 1px solid #ccc;
+}
+   
+
+.icon-plus {
+   width: 1rem;
+   height: 1rem;
 }
 
 .tree {
@@ -365,7 +382,7 @@ right connector from last child*/
 
 .tree li a{
 	// border: 1px solid #ccc;
-	padding: 2px 2px;
+	// padding: 2px 2px;
 	text-decoration: none;
 	color: #666;
 	font-family: arial, verdana, tahoma;

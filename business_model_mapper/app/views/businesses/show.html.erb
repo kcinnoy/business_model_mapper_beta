@@ -75,7 +75,11 @@ Simple Business Model creation for StartUps
                         <ul>
 							<li>
 								<div class= "create-link">
-									<%= link_to 'Create project', new_strategic_goal_project_path(strategic_goal_id: sg.id)%>
+									<%= link_to new_strategic_goal_project_path(strategic_goal_id: sg.id) do%>
+										<%= svg_asset("squared-plus", class: "icon-plus") %> 	
+									<% end %>
+									<div>Project</div> 
+									
 								</div>
 									<ul>
 									<% sg.projects.each do |project| %>
@@ -93,8 +97,8 @@ Simple Business Model creation for StartUps
 														<% project.resources.each do |resource| %>
 															<div>
 																<%= resource.name %>
-																<%= resource.qty %>
-																Cost
+																x <%= resource.qty %>
+																<%= resource.total_cost_year %>
 															</div>
 														<% end %>
 													</div>

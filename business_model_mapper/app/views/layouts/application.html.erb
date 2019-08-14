@@ -35,7 +35,7 @@
           </div> 
           <div class="user-nav__user">
             <%#= image_tag("user.jpg", alt: "User photo", class: "user-nav__user-photo") %>
-            <%= svg_asset("flow-tree", class:"user-nav__icon-box__icon") %>
+            <%= svg_asset("user", class:"user-nav__user__icon") %>
             <span class="user-nav__user-name">
               <% if user_signed_in? %>
                 <%= current_user.name %><br />

@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
     end
 
     def update 
+        raise params.inspect
         @project = Project.find(params[:id])
         @business = @project.strategic_goal.business_id
         @resources = @project.resources

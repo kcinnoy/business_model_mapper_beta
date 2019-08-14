@@ -4,7 +4,7 @@
     <div class="projects-pagetitle"> Projects Edit Page</div>
 
     <div class="projects-form">
-        <%= form_for [@strategic_goal,@project], :method => :patch do |f| %>
+        <%= form_for [@strategic_goal,@project] do |f| %>
           
             <%= f.hidden_field :strategic_goal_id %>
 
@@ -28,10 +28,16 @@
                         <span class="focus-border"></span>
                     </div> 
                     <div class="projects-form__field">
+                        <%= r.label :total_cost_year, "Total Year Cost" %><br />
+                        <%= r.number_field :total_cost_year, class:"projects-form__field__input" %>
+                        <span class="focus-border"></span>
+                    </div> 
+                    <div class="projects-form__field">
                         <%= r.label :Qty %><br />
                         <%= r.number_field :qty, class:"projects-form__field__input" %>
                         <span class="focus-border"></span>
-                    </div> 
+                    </div>
+                       
                        
                 <% end %>
                 </div>
