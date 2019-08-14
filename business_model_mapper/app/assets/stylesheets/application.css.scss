@@ -36,7 +36,7 @@
 .container {
    display: grid;
    grid-template-rows: min-content repeat(2, min-content);
-   grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem)[col-end]) [center-end] 1fr [full-end sidebar-start] minmax(15rem, 50rem) [sidebar-end];
+   grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem)[col-end]) [center-end] 1fr [full-end sidebar-start] minmax(5rem, 50rem) [sidebar-end];
 
    max-width: 120rem;
    // margin: 8rem auto;
@@ -272,6 +272,14 @@
       }
    }
    &__body{
+      display: flex;
+      flex-direction: column;
+      &__title {
+         color: purple;
+      }
+      &__items {
+         display: flex;
+      }
 
    }
 }
@@ -419,7 +427,7 @@ right connector from last child*/
 
       }
    }
-   input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: red; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+   input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: purple; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
 }
 
 .resource-holder {
@@ -437,14 +445,15 @@ right connector from last child*/
    left: 0;
    width: 0;
    height: 2px;
-   background-color:#4caf50;
+   background-color: purple;
    transition: 0.4s;
 }
 
 select.projects-form__field__input { 
    border-radius: 0;
    padding: 10px 16px; /* Firefox */
-	height: 50px;  /* Chrome & Safari */
+   height: 50px;  /* Chrome & Safari */
+   width: 100%;
 	-webkit-border-radius: 0;
    border: 0;
    font-size: 15px;

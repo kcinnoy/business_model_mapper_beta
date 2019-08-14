@@ -4,7 +4,7 @@
     <div class="projects-pagetitle"> Projects Edit Page</div>
 
     <div class="projects-form">
-        <%= form_for [@strategic_goal,@project] do |f| %>
+        <%= form_for [@strategic_goal,@project], :method => :patch do |f| %>
           
             <%= f.hidden_field :strategic_goal_id %>
 

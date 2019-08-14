@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   resources :businesses
   resources :strategic_goals, only: [:new, :create, :show] do
-    resources :projects, only: [:index, :new, :create, :show, :edit]
+    resources :projects, only: [:index, :new, :create, :show, :edit, :update]
   end
   resources :resources, only: [:new, :create, :show, :edit]
 

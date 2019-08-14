@@ -40,17 +40,15 @@ class ProjectsController < ApplicationController
         @resources = @project.resources
     end
 
-    def update
+    def update 
         @project = Project.find(params[:id])
+        @business = @project.strategic_goal.business_id
         @resources = @project.resources
         @project.update(project_params)
         
-        redirect_to strategic_goal_project_path(@project)
+        # redirect_to strategic_goal_project_path(@strategic_goal,@project)
+        redirect_to business_path(@business)
       end 
-
-    def update
-        
-    end
 
     private
 

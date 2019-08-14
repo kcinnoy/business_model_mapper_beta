@@ -88,7 +88,16 @@ Simple Business Model creation for StartUps
 													<% end %>
 												</div>
 												<div class="project-box__body">
-													Resources
+													<div class="project-box__body_title">Resources</div>
+													<div class="project-box__body_items">
+														<% project.resources.each do |resource| %>
+															<div>
+																<%= resource.name %>
+																<%= resource.qty %>
+																Cost
+															</div>
+														<% end %>
+													</div>
 												</div>
 											</div>
 
