@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     end
 
     def create      
-        # raise params.inspect
+        raise params.inspect
 
         @project = Project.new(project_params)
         @strategic_goal = @project.strategic_goal_id
@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
     end
 
     def update 
-        raise params.inspect
+        # raise params.inspect
         @project = Project.find(params[:id])
         @business = @project.strategic_goal.business_id
         @resources = @project.resources
@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
 
     def project_params
         params.require(:project).permit(:name, :strategic_goal_id,
-            resources_attributes:[:name,:resource_type, :total_cost_year, :qty, :_destroy ]) 
+            resources_attributes:[:name, :id, :resource_type, :total_cost_year, :qty, :_destroy ]) 
     end
 
 end

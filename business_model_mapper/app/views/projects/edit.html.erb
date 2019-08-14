@@ -14,11 +14,11 @@
                 <span class="focus-border"></span>
             </div>
 
-            <% @resources.each_with_index do |resource, index| %>
-                <%= f.fields_for resource do |r| %>
+            <%# @resources.each_with_index do |resource, index| %>
+                <%= f.fields_for :resources do |r| %>
                 <div class="resource-holder">
                     <div class="projects-form__field">
-                        <%= r.label :name, "Resource #{index+1}" %>
+                        <%= r.label :name, "Resource #{+1}" %>
                         <%= r.text_field :name, class:"projects-form__field__input" %>
                         <span class="focus-border"></span>
                     </div> 
@@ -42,7 +42,7 @@
                 <% end %>
                 </div>
 
-            <% end %>
+            <%# end %>
                 
         <div class="submit-button">
             <%= f.submit 'Edit Project'%>
