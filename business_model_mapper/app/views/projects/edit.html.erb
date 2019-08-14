@@ -1,25 +1,47 @@
 
-Projects Edit Page
+<section class= "projects-container">
 
-<%= form_for [@strategic_goal,@project] do |f| %>
-    <%#= render "form" %>
+    <div class="projects-pagetitle"> Projects Edit Page</div>
 
-    <%= f.hidden_field :strategic_goal_id %>
+    <div class="projects-form">
+        <%= form_for [@strategic_goal,@project] do |f| %>
+          
+            <%= f.hidden_field :strategic_goal_id %>
 
-    <%= f.label :name %><br />
-    <%= f.text_field :name %><br /><br />
+            <div class="projects-form__field">
+                <%= f.label :name %>
+                <%= f.text_field :name, class:"projects-form__field__input"%>
+                <span class="focus-border"></span>
+            </div>
 
-    <% @resources.each do |resource| %>
-        <%= f.fields_for resource do |r| %>
-            <%= r.label :name %><br />
-            <%= r.text_field :name %><br />
-            <%= r.label :resource_type %><br />
-            <%= r.select :resource_type, options_for_select(["Staff", "Hardware", "Software", "Fixture"]) %><br />
-            <%= r.label :Qty %><br />
-            <%= r.number_field :qty %><br />
+            <% @resources.each_with_index do |resource, index| %>
+                <%= f.fields_for resource do |r| %>
+                <div class="resource-holder">
+                    <div class="projects-form__field">
+                        <%= r.label :name, "Resource #{index+1}" %>
+                        <%= r.text_field :name, class:"projects-form__field__input" %>
+                        <span class="focus-border"></span>
+                    </div> 
+                    <div class="projects-form__field">
+                        <%= r.label :resource_type %><br />
+                        <%= r.select :resource_type, options_for_select(["Staff", "Hardware", "Software", "Fixture"]),{}, {class: "projects-form__field__input"} %>
+                        <span class="focus-border"></span>
+                    </div> 
+                    <div class="projects-form__field">
+                        <%= r.label :Qty %><br />
+                        <%= r.number_field :qty, class:"projects-form__field__input" %>
+                        <span class="focus-border"></span>
+                    </div> 
+                       
+                <% end %>
+                </div>
+
+            <% end %>
+                
+        <div class="submit-button">
+            <%= f.submit 'Edit Project'%>
+        </div>
+
         <% end %>
-    <% end %>
-        
- <%= f.submit 'Edit Project' %>
-
-<% end %>
+    </div>
+</section>

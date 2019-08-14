@@ -272,7 +272,7 @@
       }
    }
    &__body{
-      
+
    }
 }
 
@@ -385,3 +385,73 @@ right connector from last child*/
 .tree li a:hover+ul ul::before{
 	border-color:  #94a0b4;
 }
+
+
+/////// Projects 
+
+.projects-container {
+   padding: 2rem;
+}
+
+.projects-pagetitle {
+   padding-bottom: 1rem;
+}
+
+.projects-form {
+   padding: 2rem;
+   background-color: var(--color-grey-light-3);
+
+   &__field{
+      display: block;
+      // float: left;
+      width: 27.33%; margin: 40px 3%; position: relative;
+      border-bottom: 1px solid #fff;
+      &__input {
+         border: 0; 
+         padding: 4px 0;
+         // border-bottom: 1px solid #fff;
+         background-color: transparent;
+         font-size: 15px;
+      }
+      &__select {
+         @extend .projects-form__field__input;
+         border-bottom: 1px solid #fff;
+
+      }
+   }
+   input[type="text"]{font: 15px/24px 'Muli', sans-serif; color: red; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+}
+
+.resource-holder {
+   display: flex;
+}
+
+.submit-button {
+   margin-left: 26.7px;
+}
+
+:focus{outline: none;}
+
+.focus-border{position: absolute; 
+   bottom: 0;
+   left: 0;
+   width: 0;
+   height: 2px;
+   background-color:#4caf50;
+   transition: 0.4s;
+}
+
+select.projects-form__field__input { 
+   border-radius: 0;
+   padding: 10px 16px; /* Firefox */
+	height: 50px;  /* Chrome & Safari */
+	-webkit-border-radius: 0;
+   border: 0;
+   font-size: 15px;
+}
+
+.projects-form__field__input:focus ~ .focus-border,
+.has-content.projects-form__field__input~ .focus-border{width: 100%; transition: 0.4s;}
+.projects-form__field__input ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.projects-form__field__input:focus ~ label,
+.has-content.projects-form__field__input ~ label{top: -16px; font-size: 12px; color: #4caf50; transition: 0.3s;}
