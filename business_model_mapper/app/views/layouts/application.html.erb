@@ -37,8 +37,8 @@
             <%#= image_tag("user.jpg", alt: "User photo", class: "user-nav__user-photo") %>
             <%= svg_asset("user", class:"user-nav__user__icon") %>
             <span class="user-nav__user-name">
-              <% if user_signed_in? %>
-                <%= current_user.name %><br />
+              <% if user_signed_in? %> 
+                <%= current_user.name ? current_user.name : current_user.first_name %><br />
                 <%= link_to '( Logout)', destroy_user_session_path, :method => :delete %> 
               <% else %>
                 <%= link_to 'Sign In', new_user_session_path %>

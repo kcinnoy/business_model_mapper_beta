@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_134705) do
+ActiveRecord::Schema.define(version: 2019_08_16_122435) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_08_15_134705) do
     t.integer "expires_at"
     t.boolean "expires"
     t.string "refresh_token"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["business_id"], name: "index_users_on_business_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
