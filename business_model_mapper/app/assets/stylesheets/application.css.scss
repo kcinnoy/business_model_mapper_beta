@@ -476,6 +476,11 @@ select.projects-form__field__input {
    font-size: 15px;
 }
 
+.delete-button {
+   margin-top: 5px;
+   margin-left: 26.6px;
+}
+
 .projects-form__field__input:focus ~ .focus-border,
 .has-content.projects-form__field__input~ .focus-border{width: 100%; transition: 0.4s;}
 .projects-form__field__input ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}

@@ -13,6 +13,8 @@
         <%= r.select :resource_type, options_for_select(["Staff", "Hardware", "Software", "Fixture"]) %><br />
         <%= r.label :Qty %><br />
         <%= r.number_field :qty %><br />
+        <%= r.label :total_cost_year, 'Resource Cost' %><br />
+        <%= r.number_field :qty %><br />
     <% end %>
         
  <%= f.submit 'Create Project' %>

@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
     if @business.save
       redirect_to business_path(@business)
     else
-      redirect_to business_path
+      render :new
     end
   end 
 

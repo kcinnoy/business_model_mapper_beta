@@ -9,3 +9,5 @@
   <%= f.submit 'Update' %>
 
 <% end %>
+
+<%= link_to 'Delete', business_path(business),method: :delete, data: {confirm: 'Are you sure?' }%>

@@ -16,15 +16,15 @@ class ProjectsController < ApplicationController
     end
 
     def create      
-
+        
         @project = Project.new(project_params)
         @strategic_goal = @project.strategic_goal_id
-
+      
         # @project.strategic_goal = StrategicGoal.find(params[:project][:strategic_goal][:id])
         if @project.save
           redirect_to strategic_goal_project_path(@strategic_goal,@project)
         else
-          redirect_to strategic_goal_project_path
+            redirect_to request.referrer
         end
     end 
 
@@ -49,6 +49,14 @@ class ProjectsController < ApplicationController
         # redirect_to strategic_goal_project_path(@strategic_goal,@project)
         redirect_to business_path(@business)
       end 
+
+      def destroy
+        @project = Project.find(params[:id])
+        @business = @project.strategic_goal.business_id
+        @project.destroy
+      
+        redirect_to business_path(@business)
+      end
 
     private
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_122435) do
+ActiveRecord::Schema.define(version: 2019_08_17_140232) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_122435) do
     t.decimal "total_cost_year"
     t.integer "qty"
     t.integer "project_id"
+    t.decimal "all_resource_cost"
     t.index ["business_id"], name: "index_resources_on_business_id"
     t.index ["project_id"], name: "index_resources_on_project_id"
   end

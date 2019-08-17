@@ -14,6 +14,8 @@
                 <span class="focus-border"></span>
             </div>
 
+                
+
             <%# @resources.each_with_index do |resource, index| %>
                 <%= f.fields_for :resources do |r| %>
                 <div class="resource-holder">
@@ -37,10 +39,10 @@
                         <%= r.number_field :qty, class:"projects-form__field__input" %>
                         <span class="focus-border"></span>
                     </div>
-                       
-                       
-                <% end %>
+                    
+                                    
                 </div>
+                <% end %>
 
             <%# end %>
                 
@@ -49,5 +51,8 @@
         </div>
 
         <% end %>
+        <div class="delete-button">
+            <%= button_to 'Delete' ' Project', strategic_goal_project_path(@strategic_goal, @project),method: :delete, data: {confirm: 'Are you sure?' }%>
+        </div>
     </div>
 </section>
