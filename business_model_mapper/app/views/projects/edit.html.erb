@@ -1,8 +1,10 @@
 
 <section class= "projects-container">
 
-    <div class="projects-pagetitle"> Projects Edit Page</div>
-
+    <div class="projects-pagetitle">
+        Edit Project > <%= link_to @business.name, business_path(@business) %> >  <%= @project.name%> 
+    </div>
+  
     <div class="projects-form">
         <%= form_for [@strategic_goal,@project] do |f| %>
           
@@ -13,8 +15,6 @@
                 <%= f.text_field :name, class:"projects-form__field__input"%>
                 <span class="focus-border"></span>
             </div>
-
-                
 
             <%# @resources.each_with_index do |resource, index| %>
                 <%= f.fields_for :resources do |r| %>
@@ -39,6 +39,9 @@
                         <%= r.number_field :qty, class:"projects-form__field__input" %>
                         <span class="focus-border"></span>
                     </div>
+                    <div class="">
+                        <%= link_to 'Delete', resource_path(:resource),method: :delete, data: {confirm: 'Are you sure?' }%>
+                    </div>
                     
                                     
                 </div>
@@ -47,12 +50,12 @@
             <%# end %>
                 
         <div class="submit-button">
-            <%= f.submit 'Edit Project'%>
+            <%= f.submit 'Edit Project', class: 'sub-btn'%>
         </div>
 
         <% end %>
         <div class="delete-button">
-            <%= button_to 'Delete' ' Project', strategic_goal_project_path(@strategic_goal, @project),method: :delete, data: {confirm: 'Are you sure?' }%>
+            <%= button_to 'Delete' ' Project', strategic_goal_project_path(@strategic_goal, @project),method: :delete, class: 'del-btn', data: {confirm: 'Are you sure?' }%>
         </div>
     </div>
 </section>

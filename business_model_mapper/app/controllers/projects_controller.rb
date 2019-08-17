@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
         @strategic_goal = StrategicGoal.find(params[:strategic_goal_id])
         @resources = @project.resources
+        @business = @project.strategic_goal.business
     end
 
     def update 

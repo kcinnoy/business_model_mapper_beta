@@ -16,8 +16,13 @@
         <%#= image_tag("logo.png", alt: "logo", class: "logo") %>
         <%#= svg_asset("magnifying-glass", class: "logo") %>
         <div class="logo">
-          Business Model Mapper
+            <%= svg_asset("flowchart", class:"logo__image") %>
+          <div class="logo__text">
+            Business Model Mapper
+          </div>
         </div>
+        
+
 
         <form action="#" class="search">
           <input type="text" class="search__input" placeholder="Search for resource, project etc">
@@ -49,7 +54,14 @@
       </header>
 
       <div class="sidebar">
-          Configuration or Settings <br />
+        <div class="config-box">
+          <div class="">
+            Configuration or Settings
+          </div>
+          <div class="">
+            <%= svg_asset("settings-gears", class:"config-box__icon") %>
+          </div>
+        </div>
       </div>
         
       <section class="map">
