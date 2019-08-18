@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     def new
         @project = Project.new(strategic_goal_id: params[:strategic_goal_id])
         @strategic_goal = StrategicGoal.find(params[:strategic_goal_id])
+        @business = @strategic_goal.business
         2.times {@project.resources.build} 
     end
 

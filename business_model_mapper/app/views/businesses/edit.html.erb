@@ -1,13 +1,27 @@
-<h1>Create Business</h1>
+<section class= "universal-container">
+  <div class="universal-pagetitle">
+        Edit Business > <%= link_to @business.name, business_path(@business) %>
+  </div>
 
-<%= form_for @business do |f| %>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %><br /><br />
-  <%= f.label :description %><br />
-  <%= f.text_area(:description, size: '50x5') %><br /><br />
+  <div class="universal-form">  
+    <%= form_for @business do |f| %>
+      <div class="universal-form__field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:"universal-form__field__input"  %>
+        <span class="focus-border"></span>
+      </div>
+      <div class="universal-form__field">
+        <%= f.label :description %>
+        <%= f.text_area(:description, size: '50x5', class:"universal-form__field__input" ) %>
+        <span class="focus-border"></span>
+      </div>
+      <div class="submit-button">
+        <%= f.submit 'Update', class: 'sub-btn' %>
+      </div>
+    <% end %>
 
-  <%= f.submit 'Update' %>
-
-<% end %>
-
-<%= link_to 'Delete', business_path(business),method: :delete, data: {confirm: 'Are you sure?' }%>
+    <div class="delete-button">
+      <%= button_to 'Delete Business', business_path(@business),method: :delete,class: 'del-btn', data: {confirm: 'Are you sure?' }%>
+    </div> 
+  </div> 
+</section>
