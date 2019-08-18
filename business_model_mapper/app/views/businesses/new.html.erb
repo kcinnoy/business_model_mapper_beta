@@ -1,24 +1,35 @@
-<h1>Create Business</h1>
+<section class="universal-container">
+   <div class="universal-pagetitle">
+      Create a new Business Model
+   </div>
 
-<% if @business.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@business.errors.count, "error") %>
-      prohibited this business from being saved:
-    </h2>
- 
-    <ul>
-    <% @business.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+  <% if @business.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@business.errors.count, "error") %>
+        prohibited this business from being saved:
+      </h2>
+  
+      <ul>
+      <% @business.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="universal-form">
+    <div class="universal-form__field">
+    <%= form_for @business do |f| %>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class:"universal-form__field__input" %>
+      <span class="focus-border"></span>
+    </div>
+    <div class="submit-button">
+      <%= f.submit 'Create Business', class: 'sub-btn' %>
+    </div>
+
     <% end %>
-    </ul>
   </div>
-<% end %>
 
-<%= form_for @business do |f| %>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %><br /><br />
-
-  <%= f.submit 'Create Business' %>
-
-<% end %>
+</section>

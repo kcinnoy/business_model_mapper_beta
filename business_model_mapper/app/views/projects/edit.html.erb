@@ -1,42 +1,42 @@
 
-<section class= "projects-container">
+<section class= "universal-container">
 
-    <div class="projects-pagetitle">
+    <div class="universal-pagetitle">
         Edit Project > <%= link_to @business.name, business_path(@business) %> >  <%= @project.name%> 
     </div>
   
-    <div class="projects-form">
+    <div class="universal-form">
         <%= form_for [@strategic_goal,@project] do |f| %>
           
             <%= f.hidden_field :strategic_goal_id %>
 
-            <div class="projects-form__field">
+            <div class="universal-form__field">
                 <%= f.label :name %>
-                <%= f.text_field :name, class:"projects-form__field__input"%>
+                <%= f.text_field :name, class:"universal-form__field__input"%>
                 <span class="focus-border"></span>
             </div>
 
             <%# @resources.each_with_index do |resource, index| %>
                 <%= f.fields_for :resources do |r| %>
                 <div class="resource-holder">
-                    <div class="projects-form__field">
+                    <div class="universal-form__field">
                         <%= r.label :name, "Resource #{+1}" %>
-                        <%= r.text_field :name, class:"projects-form__field__input" %>
+                        <%= r.text_field :name, class:"universal-form__field__input" %>
                         <span class="focus-border"></span>
                     </div> 
-                    <div class="projects-form__field">
+                    <div class="universal-form__field">
                         <%= r.label :resource_type %><br />
                         <%= r.select :resource_type, options_for_select(["Staff", "Hardware", "Software", "Fixture"]),{}, {class: "projects-form__field__input"} %>
                         <span class="focus-border"></span>
                     </div> 
-                    <div class="projects-form__field">
+                    <div class="universal-form__field">
                         <%= r.label :total_cost_year, "Total Year Cost" %><br />
-                        <%= r.number_field :total_cost_year, class:"projects-form__field__input" %>
+                        <%= r.number_field :total_cost_year, class:"universal-form__field__input" %>
                         <span class="focus-border"></span>
                     </div> 
-                    <div class="projects-form__field">
+                    <div class="universal-form__field">
                         <%= r.label :Qty %><br />
-                        <%= r.number_field :qty, class:"projects-form__field__input" %>
+                        <%= r.number_field :qty, class:"universal-form__field__input" %>
                         <span class="focus-border"></span>
                     </div>
                     <div class="">

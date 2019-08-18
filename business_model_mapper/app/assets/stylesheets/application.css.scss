@@ -475,17 +475,17 @@ right connector from last child*/
 
 /////// Projects 
 
-.projects-container {
+.universal-container {
    padding: 2rem;
    background-color: var(--color-purple-mid-2);
 }
 
-.projects-pagetitle {
+.universal-pagetitle {
    padding-bottom: 1rem;
    color: var(--color-grey-light-3)
 }
 
-.projects-form {
+.universal-form {
    padding: 2rem;
    background-color: var(--color-purple-mid-2);
    color: var(--color-purple-light-1);
@@ -497,7 +497,9 @@ right connector from last child*/
    &__field{
       display: block;
       // float: left;
-      width: 27.33%; margin: 40px 3%; position: relative;
+      width: 27.33%;
+      margin: 40px 3%;
+      position: relative;
       border-bottom: 1px solid #615F89;
       &__input {
          border: 0; 
@@ -508,7 +510,7 @@ right connector from last child*/
          color: #fff;
       }
       &__select {
-         @extend .projects-form__field__input;
+         @extend .universal-form__field__input;
          border-bottom: 1px solid #fff;
 
       }
@@ -533,7 +535,7 @@ right connector from last child*/
    transition: 0.4s;
 }
 
-select.projects-form__field__input { 
+select.universal-form__field__input { 
    border-radius: 0;
    padding: 4px 0px; /* Firefox */
    // height: 50px;  /* Chrome & Safari */
@@ -554,7 +556,7 @@ select.projects-form__field__input {
 
 .submit-button {
    width: 5rem;
-   margin-left: 26.7px;
+   margin: 40px 3%;
 }
 
 .sub-btn {
@@ -569,8 +571,8 @@ select.projects-form__field__input {
 }
 
 
-.projects-form__field__input:focus ~ .focus-border,
-.has-content.projects-form__field__input~ .focus-border{width: 100%; transition: 0.4s;}
-.projects-form__field__input ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
-.projects-form__field__input:focus ~ label,
-.has-content.projects-form__field__input ~ label{top: -16px; font-size: 12px; color: #4caf50; transition: 0.3s;}
+.universal-form__field__input:focus ~ .focus-border,
+.has-content.universal-form__field__input~ .focus-border{width: 100%; transition: 0.4s;}
+.universal-form__field__input ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.universal-form__field__input:focus ~ label,
+.has-content.universal-form__field__input ~ label{top: -16px; font-size: 12px; color: #4caf50; transition: 0.3s;}
