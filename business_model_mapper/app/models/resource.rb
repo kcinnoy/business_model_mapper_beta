@@ -7,6 +7,9 @@ class Resource < ApplicationRecord
   belongs_to :projects, optional: true
 
   scope :expensive, -> { where("total_cost_year > ?", 50000)}
+  scope :project_cost, -> {sum("all_resource_cost")}
+
+
 
   before_save :calc_resource_cost
   before_destroy :destroy_resources

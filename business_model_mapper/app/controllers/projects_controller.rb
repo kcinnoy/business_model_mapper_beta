@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
 
     def project_params
         params.require(:project).permit(:name, :strategic_goal_id,
-            resources_attributes:[:name, :id, :resource_type, :total_cost_year, :qty, :_destroy ]) 
+            resources_attributes:[:name, :id, :total_cost_year, :resource_type,  :qty, :_destroy ]) 
     end
 
 end

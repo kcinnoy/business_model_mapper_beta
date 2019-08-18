@@ -1,7 +1,7 @@
 class BusinessesController < ApplicationController
   
   def index
-    @business = current_user.businesses
+    @businesses = current_user.businesses
   end
   
   def new

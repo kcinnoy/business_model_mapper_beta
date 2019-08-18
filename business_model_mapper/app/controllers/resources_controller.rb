@@ -12,13 +12,13 @@ class ResourcesController < ApplicationController
       end
     
       def create
-        resource = Resource.create(post_params)
+        resource = Resource.create(resource_params)
         redirect_to resource
       end
     
       private
   
-      def post_params
+      def resource_params
         params.require(:resource).permit(:name, :type, :qty, :total_cost_year, strategic_goals_ids:[], strategic_goal_attributes: [:name, :approach, :description])
       end
 end

@@ -45,8 +45,10 @@
 
 
   --color-purple-light-1: #A599E9; //text
-  --color-purple-light-2: #B362FF; //highlight text
+  
+  --color-purple-light-2: #892e78; //highlight text
   --color-purple-light-3: #615F89; //highlight text
+  --color-purple-light-4: #B362FF; //highlight text
  
   --color-amber-light-1: #FAD000; //highlight
 }
@@ -275,9 +277,12 @@ a {
 
 ///// Map
 
-.map-body {
+// #2d2b55, #57316c, #892e78, #bc2474, #e91e63;
 
+.map-container {
+   padding-top: 3rem;
 }
+   
 
 .business-box {
    margin: auto;
@@ -290,16 +295,19 @@ a {
          @extend .sg-box__head__content;
       }
    }
+   &__description {
+      @extend .sg-box__description;
+   }
 }
 
 .sg-box {
    display: flex;
    flex-direction: column;
    max-width: 15rem;
-   border: 1px solid #ccc;
+   border: 1px solid var(--color-purple-light-2);
 	// padding: 5px 10px;
 	text-decoration: none;
-	color: #666;
+	
 	font-family: arial, verdana, tahoma;
 	font-size: 0.9rem;
 	
@@ -315,14 +323,19 @@ a {
       display: flex;
       align-items: center;
       padding: 0.2rem;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid var(--color-purple-light-2);
       margin-bottom: 0.5rem;
 
       &__content {
+         color: var(--color-purple-light-1);
          flex-grow: 2;
          margin-right: auto;
          border: none;
       }
+   }
+   &__description {
+      color: #fff;
+      padding: 0.2rem;
    }
 }
 
@@ -337,12 +350,21 @@ a {
    &__body{
       display: flex;
       flex-direction: column;
-      &__title {
-         color: purple;
+      
+      color: #fff;
+      &-title {
+         color: #fff;
+         padding-bottom: 5px;
       }
-      &__items {
-         display: flex;
+      &-items {
+         color: #fff;
+         padding: 0.4rem;
+         &__total {
+            border-top: 1px solid var(--color-purple-light-2);
+            padding: 0.2rem;
+         }
       }
+      
 
    }
 }
@@ -356,16 +378,17 @@ a {
    align-items: center;
    justify-content: center;
    text-decoration: none;
-	color: #666;
+	color: var(--color-purple-light-1);
 	font-family: arial, verdana, tahoma;
    font-size: 0.9rem;
-   border: 1px solid #ccc;
+   border: 1px solid var(--color-purple-light-2);
 }
    
 
-.icon-plus {
+.icon-link {
    width: 1rem;
    height: 1rem;
+   fill: var(--color-red-light);
 }
 
 .tree {
@@ -398,12 +421,12 @@ a {
 .tree li::before, .tree li::after{
 	content: '';
 	position: absolute; top: 0; right: 50%;
-	border-top: 1px solid #ccc;
+	border-top: 1px solid var(--color-purple-light-2);
 	width: 50%; height: 20px;
 }
 .tree li::after{
 	right: auto; left: 50%;
-	border-left: 1px solid #ccc;
+	border-left: 1px solid var(--color-purple-light-2);
 }
 
 /*We need to remove left-right connectors from elements without 
@@ -422,7 +445,7 @@ right connector from last child*/
 }
 /*Adding back the vertical connector to the last nodes*/
 .tree li:last-child::before{
-	border-right: 1px solid #ccc;
+	border-right: 1px solid var(--color-purple-light-2);
 	border-radius: 0 5px 0 0;
 	-webkit-border-radius: 0 5px 0 0;
 	-moz-border-radius: 0 5px 0 0;
@@ -437,7 +460,7 @@ right connector from last child*/
 .tree ul ul::before{
 	content: '';
 	position: absolute; top: 0; left: 50%;
-	border-left: 1px solid #ccc;
+	border-left: 1px solid var(--color-purple-light-2);
 	width: 0; height: 20px;
 }
 
@@ -462,15 +485,17 @@ right connector from last child*/
 /*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/
 .tree li div:hover, .tree li div:hover+ul li div {
-	background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+   background: var(--color-purple-mid-1);
+   color: var(--color-amber-light-1) 
+   // border: 1px solid #94a0b4;
 }
 /*Connector styles on hover*/
-.tree li a:hover+ul li::after, 
-.tree li a:hover+ul li::before, 
-.tree li a:hover+ul::before, 
-.tree li a:hover+ul ul::before{
-	border-color:  #94a0b4;
-}
+// .tree li a:hover+ul li::after, 
+// .tree li a:hover+ul li::before, 
+// .tree li a:hover+ul::before, 
+// .tree li a:hover+ul ul::before{
+	// border-color:  #94a0b4;
+// }
 
 
 /////// Projects 

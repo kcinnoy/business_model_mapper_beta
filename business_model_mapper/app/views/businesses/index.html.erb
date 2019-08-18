@@ -1,2 +1,17 @@
+<section class= "universal-container">
+    <div class="universal-pagetitle">
+        Your Business Model(s) 
+    </div>
 
+    <div class="universal-form">
+        <% @businesses.each do |b| %>
+            <ol>
+                <li>
+                    <%= link_to b.name, business_path(b) %>
+                </li>
+            </ol>
+        <% end %>
+    </div>
+
+</section>
 
