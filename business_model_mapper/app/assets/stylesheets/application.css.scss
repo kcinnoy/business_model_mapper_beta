@@ -560,6 +560,7 @@ select.universal-form__field__input {
 }
 
 .sub-btn {
+   margin-bottom: 1rem;
    width: 12rem;
    border: none;
    background-color: var(--color-purple-mid-3);
@@ -570,7 +571,56 @@ select.universal-form__field__input {
    @extend .sub-btn;
 }
 
+a.google-btn {
+   margin-left: 40px;
+   width: 12rem;
+}
 
+google-button {
+   height: 35px;
+   width: 12rem;
+   padding-left: 40px;
+   border-width: 0;
+   background: white;
+   color: #737373;
+   border-radius: 5px;
+   white-space: nowrap;
+   box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
+   transition-property: background-color, box-shadow;
+   transition-duration: 150ms;
+   transition-timing-function: ease-in-out;
+   padding: 0;
+   
+   &:focus,
+   &:hover {
+     box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
+   }
+   
+   &:active {
+     background-color: #e5e5e5;
+     box-shadow: none;
+     transition-duration: 10ms;
+   }
+ }
+     
+ .google-button__icon {
+   display: inline-block;
+   vertical-align: middle;
+   margin: 2px 0 2px 8px;
+   width: 18px;
+   height: 18px;
+   box-sizing: border-box;
+ }
+ 
+ .google-button__text {
+   display: inline-block;
+   vertical-align: middle;
+   padding: 0 10px;
+   font-size: 14px;
+   font-weight: bold;
+   font-family: 'Roboto',arial,sans-serif;
+ }
+ 
 .universal-form__field__input:focus ~ .focus-border,
 .has-content.universal-form__field__input~ .focus-border{width: 100%; transition: 0.4s;}
 .universal-form__field__input ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
