@@ -1,10 +1,19 @@
+<section class= "universal-container">
+    <div class="universal-pagetitle">
+        <%= @project.name %> 
+    </div>
+        <div class="universal-form">
+                <% @project.resources.each do |r| %>
+                    <ul>   
+                        <li> 
+                            <%= r.name %>: <%= r.qty %> x <%= number_to_currency(r.total_cost_year, unit: '£',  precision: 0)%> = <%= number_to_currency(r.all_resource_cost, unit: '£',  precision: 0) %>
+                        </li >
+                    </ul> 
+                <% end %>
 
-<%= @project.name %>
-
-    <% @project.resources.each do |r| %>
-        <ul>   
-            <li> 
-                <%= r.name %>
-            </li >
-        </ul> 
-    <% end %>
+                <div class="link-align">
+                    <%= link_to 'Edit Project', edit_strategic_goal_project_path(@project.strategic_goal_id,@project) %>
+                </div>
+        </div>
+        
+</section>

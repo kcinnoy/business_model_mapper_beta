@@ -7,7 +7,7 @@
         <% @businesses.each do |b| %>
             <ol>
                 <li>
-                    <%= link_to b.name, business_path(b) %>
+                    <%= link_to b.name, business_path(b) %> - <%= link_to 'Edit', edit_business_path(b) %>
                 </li>
             </ol>
         <% end %>

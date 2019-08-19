@@ -1,7 +1,7 @@
 <section class= "universal-container">
     
         <div class="universal-pagetitle">
-            New Project > <%= link_to @business.name, business_path(@business) %>
+            <%= link_to @business.name, business_path(@business) %> > <%= @strategic_goal.name%> > New Project
         </div>
         
         <div class="universal-form">
@@ -10,7 +10,7 @@
                 <%= f.hidden_field :strategic_goal_id %>
 
             <div class="universal-form__field">
-                <%= f.label :name %>
+                <%= f.label :name, "Project name" %>
                 <%= f.text_field :name, class:"universal-form__field__input" %>
                 <span class="focus-border"></span>
             </div>
@@ -18,7 +18,7 @@
                 <%= f.fields_for :resources do |r| %>
                 <div class="resource-holder">
                     <div class="universal-form__field">
-                        <%= r.label :name %>
+                        <%= r.label :name, "Resource name" %>
                         <%= r.text_field :name, class:"universal-form__field__input" %>
                         <span class="focus-border"></span>
                     </div>

@@ -102,7 +102,7 @@ a {
 .map {
    background-color: var(--color-purple-mid-2);
    grid-column: full-start/ center-end;
-   padding: 0.5rem
+   // padding: 0.5rem;
 }
 
 .footer {
@@ -110,6 +110,76 @@ a {
    grid-column: full-start/ full-end;
 }
 
+.home-container {
+   background: rgb(45,43,85);
+   background: linear-gradient(153deg, rgba(45,43,85,1) 0%, rgba(69,66,110,1) 50%, rgba(186,38,93,1) 100%);
+}
+
+.home-main {
+   display: flex;
+   height: 600px;
+   justify-content: center;
+   padding: 6rem  
+}
+
+.home-hero {
+   display: flex;
+}
+
+.home-copy {
+   display: flex;
+   flex-direction: column;
+   max-width: 700px;
+   
+   &__head {
+      font-size: 46px;
+      color: #fff;
+   }
+   &__body {
+      padding-top: 2rem;
+      font-size: 20px;
+      color: var(--color-grey-light-3);
+   }
+   &__links {
+      display: flex;
+      margin-top: 50px;
+   }
+}
+
+
+.sign-up-btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 20px;
+   width: 200px;
+   height: 50px;
+   border-radius: 100px;
+   color: #fff;
+   border: 2px solid var(--color-red-light);
+   background-image: linear-gradient(to right, #2d2b55, #57316c, #892e78, #bc2474, #e91e63);
+}
+
+.more-info-btn{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-right: 20px;
+   width: 200px;
+   height: 50px;
+   border-radius: 100px;
+   color: #fff;
+   border: 2px solid var(--color-red-light);
+}
+
+.home-image {
+   &__map {
+      height: 300px;
+      width: 515px;
+      -webkit-box-shadow: 0px 0px 15px 5px rgba(196,196,196,0.35); 
+      box-shadow: 0px 0px 15px 5px rgba(196,196,196,0.35);
+   }
+}
 
 /////// Logo
 .logo {
@@ -218,11 +288,12 @@ a {
       align-items: center
    }
 
-   & > *:hover {
-      background-color: var(--color-grey-light-2);
-   }
+   
 
    &__icon-box {
+      & > *:hover {
+         background-color: var(--color-purple-mid-2);
+      }
       &__icon {
          padding: 0.9rem;
          border: 1px solid var(--color-purple-light-3);
@@ -236,15 +307,17 @@ a {
       width: 2.25rem;
    }
 
-   // &__notification {
-      // not used yet
-   // }
 
    &__user__icon {
+      &:hover {
+         background-color: var(--color-purple-mid-2);
+      }
       padding: 0.6rem;
       border: 1px solid var(--color-purple-light-3);
       border-radius: 50px;
       fill: var(--color-purple-light-3);
+      
+
    }
 
    &__user-photo{
@@ -252,6 +325,7 @@ a {
       border-radius: 50%;
       // margin-right: 1rem;
       border: 1px solid red;
+      
    }
 
    &__user-name {
@@ -594,6 +668,11 @@ select.universal-form__field__input {
 
 .del-btn {
    @extend .sub-btn;
+}
+
+.link-align {
+   margin-left: 20px;
+   font-size: 14px;
 }
 
 a.google-btn {
