@@ -4,7 +4,7 @@ class Resource < ApplicationRecord
   validates :qty, numericality: true
 
   belongs_to :business, optional: true
-  belongs_to :projects, optional: true
+  belongs_to :project, optional: true
 
   scope :expensive, -> { where("total_cost_year > ?", 50000)}
   scope :project_cost, -> {sum("all_resource_cost")}
