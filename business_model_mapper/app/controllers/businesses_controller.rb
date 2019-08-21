@@ -1,4 +1,7 @@
 class BusinessesController < ApplicationController
+  before_action :only => [:edit] do
+    redirect_to new_user_session_path unless current_user == Business.find(params[:id]).user
+  end
   
   def index
     @businesses = current_user.businesses
