@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :only => [:new, :edit] do
+    before_action :only => [:edit] do
         redirect_to new_user_session_path unless current_user == Project.find(params[:id]).strategic_goal.business.user
     end
 
