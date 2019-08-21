@@ -632,20 +632,19 @@ right connector from last child*/
    margin-left: 4rem;
    align-content: center;
    border-radius: 50px;
-   border: 1px solid var(--color-red-light);
-   Color: #fff;
+   border: 1px solid var(--color-grey-dark-2);
+   Color: var(--color-grey-dark-3);
    font-size: 12px;
 
    &__header {
       align-self: flex-start;
       padding: 0.3rem;
-      
    }
 
    &__body {
       align-self: flex-start;
       padding-left: 10px;
-      border-left: 1px solid var(--color-red-light);
+      border-left: 1px solid var(--color-grey-dark-2);
       padding: 0.3rem;
    }
 }
