@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_140232) do
+ActiveRecord::Schema.define(version: 2019_08_21_072951) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2019_08_17_140232) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.string "invoice_code"
+    t.integer "business_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "resource_id"
+    t.index ["business_id"], name: "index_invoices_on_business_id"
+    t.index ["resource_id"], name: "index_invoices_on_resource_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -35,7 +45,6 @@ ActiveRecord::Schema.define(version: 2019_08_17_140232) do
 
   create_table "resources", force: :cascade do |t|
     t.string "name"
-    t.integer "business_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "resource_type"
@@ -43,7 +52,6 @@ ActiveRecord::Schema.define(version: 2019_08_17_140232) do
     t.integer "qty"
     t.integer "project_id"
     t.decimal "all_resource_cost"
-    t.index ["business_id"], name: "index_resources_on_business_id"
     t.index ["project_id"], name: "index_resources_on_project_id"
   end
 

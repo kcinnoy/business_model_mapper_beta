@@ -11,10 +11,10 @@ class ResourcesController < ApplicationController
         @resource = Resource.new
       end
     
-      def create
-        resource = Resource.create(resource_params)
-        redirect_to resource
-      end
+      # def create
+      #   resource = Resource.create(resource_params)
+      #   redirect_to resource
+      # end
     
       private
   

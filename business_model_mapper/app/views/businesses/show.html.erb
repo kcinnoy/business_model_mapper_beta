@@ -1,4 +1,13 @@
 <section class="map-container">
+	<div class="costs-container">
+		<div class="costs-container__header">
+			Commited spend
+		</div>
+		<div class="costs-container__body">
+			<%= number_to_currency(@business.resources.project_cost, unit: '£',  precision: 0) %>
+		</div>
+	</div>
+
 	<div class="tree">
 		<ul>
 			<li class="map-body">
@@ -72,4 +81,6 @@
 			</li>
 		</ul>
 	</div>
+
+	
 </section>

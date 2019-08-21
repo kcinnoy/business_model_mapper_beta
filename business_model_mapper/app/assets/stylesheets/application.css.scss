@@ -622,6 +622,34 @@ right connector from last child*/
    align-items: center
 }
 
+.universal-cost {
+   display: flex;
+}
+
+.costs-container {
+   display:inline-flex;
+   align-items: flex-start;
+   margin-left: 4rem;
+   align-content: center;
+   border-radius: 50px;
+   border: 1px solid var(--color-red-light);
+   Color: #fff;
+   font-size: 12px;
+
+   &__header {
+      align-self: flex-start;
+      padding: 0.3rem;
+      
+   }
+
+   &__body {
+      align-self: flex-start;
+      padding-left: 10px;
+      border-left: 1px solid var(--color-red-light);
+      padding: 0.3rem;
+   }
+}
+
 
 :focus{outline: none;}
 

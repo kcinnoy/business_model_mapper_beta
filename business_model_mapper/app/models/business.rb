@@ -4,7 +4,8 @@ class Business < ApplicationRecord
   belongs_to :user
 
   has_many :strategic_goals
-  has_many :resources
+  has_many :invoices
+  has_many :resources, through: :invoices
 
   after_create do
     self.strategic_goals.create(

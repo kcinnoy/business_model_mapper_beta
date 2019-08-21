@@ -16,10 +16,14 @@ class ProjectsController < ApplicationController
         2.times {@project.resources.build} 
     end
 
-    def create      
-        
+    def create          
+        # raise inpect.params
         @project = Project.new(project_params)
         @strategic_goal = @project.strategic_goal_id
+        @business = @project.strategic_goal.business
+        @resources = @project.resources
+
+        
       
         # @project.strategic_goal = StrategicGoal.find(params[:project][:strategic_goal][:id])
         if @project.save
@@ -66,5 +70,9 @@ class ProjectsController < ApplicationController
         params.require(:project).permit(:name, :strategic_goal_id,
             resources_attributes:[:name, :id, :total_cost_year, :resource_type,  :qty, :_destroy ]) 
     end
+
+    # def raise_invoice
+    #     @business.invoices.create!(params[:project][:resources_attributes][0])
+    # end
 
 end

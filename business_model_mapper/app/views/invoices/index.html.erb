@@ -1,0 +1,17 @@
+<section class= "universal-container">
+
+    <div class="universal-pagetitle">
+        <%= @resource.name %> Invoice(s) 
+    </div>
+
+    <div class="universal-form">
+        <% @invoices.each do |i| %>
+            <ul>   
+                <li> 
+                    Invoice Code:  <%= i.invoice_code %> Invoice Amount: <%= number_to_currency(@resource.total_cost_year, unit: '£',  precision: 0)  %> -  <%= link_to 'Delete', resource_invoice_path(@resource,i.id),method: :delete, data: {confirm: 'Are you sure?' }%>      
+                </li >
+            </ul> 
+        <% end %>
+    </div>
+
+</section>

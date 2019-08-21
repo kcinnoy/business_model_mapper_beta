@@ -3,17 +3,22 @@
         <%= @project.name %> 
     </div>
         <div class="universal-form">
-                <% @project.resources.each do |r| %>
-                    <ul>   
-                        <li> 
-                            <%= r.name %>: <%= r.qty %> x <%= number_to_currency(r.total_cost_year, unit: '£',  precision: 0)%> = <%= number_to_currency(r.all_resource_cost, unit: '£',  precision: 0) %>
-                        </li >
-                    </ul> 
-                <% end %>
-
-                <div class="link-align">
-                    <%= link_to 'Edit Project', edit_strategic_goal_project_path(@project.strategic_goal_id,@project) %>
-                </div>
+            <div class="resource-holder"></div>
+                <% @project.resources.each do |resource| %>
+                        <ul>   
+                            <li> 
+                                <div class="universal-cost">
+                                    <%= resource.name %>: <%= resource.qty %> x <%= number_to_currency(resource.total_cost_year, unit: '£',  precision: 0)%> = <%= number_to_currency(resource.all_resource_cost, unit: '£',  precision: 0) %>
+                                    <div class="submit-button">
+                                        <%= button_to 'Create Invoice', resource_invoices_path(resource), class: 'sub-btn' %>
+                                    </div>
+                                </div>
+                            </li >
+                        </ul> 
+                <% end %>   
+             </div>         
         </div>
-        
+        <div class="link-align">
+            <%= link_to 'Edit Project', edit_strategic_goal_project_path(@project.strategic_goal_id,@project) %>
+        </div>
 </section>
