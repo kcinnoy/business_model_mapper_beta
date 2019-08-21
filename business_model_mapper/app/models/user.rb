@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :email, presence: true, uniqueness: true
   
-  devise :database_authenticatable, :registerable, :omniauthable, :omniauth_providers => [:google_oauth2]
+  devise :database_authenticatable, :registerable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
   has_many :businesses
 
@@ -20,6 +20,7 @@ class User < ApplicationRecord
       user.expires = auth.credentials.expires
       user.expires_at = auth.credentials.expires_at
       user.refresh_token = auth.credentials.refresh_token
+      user.password = SecureRandom.urlsafe_base64
       user.save! #remove if fail
     end
   end
