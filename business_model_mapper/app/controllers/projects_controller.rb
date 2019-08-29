@@ -26,7 +26,6 @@ class ProjectsController < ApplicationController
         @business = @project.strategic_goal.business
         @resources = @project.resources
 
-        # @project.strategic_goal = StrategicGoal.find(params[:project][:strategic_goal][:id])
         if @project.save
           redirect_to strategic_goal_project_path(@strategic_goal,@project)
         else
