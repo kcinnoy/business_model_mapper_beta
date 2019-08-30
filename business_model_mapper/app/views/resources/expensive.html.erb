@@ -1,0 +1,8 @@
+
+<% @resources.each.with_index(1) do |resource, i| %>
+    <ul>   
+        <li>
+           <%= i%>: <%= resource.name %> <%= resource.total_cost_year %>
+        </li>
+    </ul>
+<%end %> 

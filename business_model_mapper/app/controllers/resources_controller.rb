@@ -10,6 +10,10 @@ class ResourcesController < ApplicationController
       def new
         @resource = Resource.new
       end
+
+      def expensive
+        @resources = Resource.most_expensive
+      end
      
       private
   

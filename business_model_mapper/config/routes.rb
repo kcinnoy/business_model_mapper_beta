@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :invoices
   end
   
+  get '/most-expensive' => 'resources#expensive'
 
   # resources :users, only: [:new, :create, :show]
   # get '/signin' => 'session#new'

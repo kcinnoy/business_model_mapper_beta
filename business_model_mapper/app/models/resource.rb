@@ -9,6 +9,7 @@ class Resource < ApplicationRecord
 
   scope :expensive, -> { where("total_cost_year > ?", 50000)}
   scope :project_cost, -> {sum("all_resource_cost")}
+  scope :most_expensive, -> { order(total_cost_year: :desc).limit(5)}
 
 
 
