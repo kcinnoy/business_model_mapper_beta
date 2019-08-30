@@ -3,9 +3,19 @@ class InvoicesController < ApplicationController
   def create
     @resource = Resource.find(params[:resource_id])
     @business = @resource.project.strategic_goal.business
-    @invoice = @resource.invoices.create!(business: @business)
-    redirect_to resource_invoices_path(@resource)
+    # @invoice = @resource.invoices.create!(business: @business)
+    # redirect_to resource_invoices_path(@resource)
+
+    if @resource.invoices.create!(business: @business)
+      redirect_to resource_invoices_path(@resource)
+    else
+      redirect_to request.referrer
+    end
+
   end
+
+
+
 
   def index
     @resource = Resource.find(params[:resource_id])
