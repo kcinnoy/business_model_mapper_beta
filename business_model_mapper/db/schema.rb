@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_174531) do
+ActiveRecord::Schema.define(version: 2019_09_17_184807) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -41,13 +41,15 @@ ActiveRecord::Schema.define(version: 2019_08_21_174531) do
 
   create_table "resources", force: :cascade do |t|
     t.string "name"
+    t.integer "business_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "resource_type"
     t.decimal "total_cost_year"
     t.integer "qty"
-    t.integer "project_id"
     t.decimal "all_resource_cost"
+    t.integer "project_id"
+    t.index ["business_id"], name: "index_resources_on_business_id"
     t.index ["project_id"], name: "index_resources_on_project_id"
   end
 
@@ -67,7 +69,6 @@ ActiveRecord::Schema.define(version: 2019_08_21_174531) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "business_id"
     t.string "provider"
     t.string "uid"
     t.string "token"
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_174531) do
     t.string "refresh_token"
     t.string "first_name"
     t.string "last_name"
+    t.integer "business_id"
     t.index ["business_id"], name: "index_users_on_business_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

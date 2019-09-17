@@ -21,12 +21,19 @@ class BusinessesController < ApplicationController
     end
   end 
 
-
   def show
-    @businesses = Business.all
-    @business = Business.find(params[:id])
-    @strategic_goals = @business.strategic_goals
+     @businesses = Business.all
+     @business = Business.find(params[:id])
+     @strategic_goals = @business.strategic_goals
   end
+
+  #def show
+   # @businesses = Business.all
+    #@business = Business.find(params[:id])
+    #@strategic_goals = @business.strategic_goals
+
+    # render json: @business, status: 200
+  #end
 
   def edit
     @business = Business.find(params[:id])
