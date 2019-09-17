@@ -25,6 +25,7 @@ class BusinessesController < ApplicationController
      @businesses = Business.all
      @business = Business.find(params[:id])
      @strategic_goals = @business.strategic_goals
+     render json: @business, status: 200
   end
 
   #def show
