@@ -5,6 +5,10 @@ class BusinessesController < ApplicationController
   
   def index
     @businesses = current_user.businesses
+    respond_to do |format|
+      format.html
+      format.json {render json: @businesses}
+    end
   end
   
   def new
@@ -22,10 +26,13 @@ class BusinessesController < ApplicationController
   end 
 
   def show
-     @businesses = Business.all
-     @business = Business.find(params[:id])
-     @strategic_goals = @business.strategic_goals
-     render json: @business, status: 200
+    @businesses = Business.all
+    @business = Business.find(params[:id])
+    @strategic_goals = @business.strategic_goals
+      respond_to do |format|
+        format.html {render :show}
+        format.json {render json: @business, status: 200}
+      end
   end
 
   #def show

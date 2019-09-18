@@ -35,7 +35,8 @@
           <div class="user-nav__icon-box">
             <%= svg_asset("bar-graph", class:"user-nav__icon-box__icon") %>
           </div>
-          <%= link_to businesses_path do %>
+          <%= link_to businesses_path, class: "user-nav_businesses" do %>
+            
             <div class="user-nav__icon-box">
               <%= svg_asset("flow-tree", class:"user-nav__icon-box__icon") %>
             </div> 
@@ -58,10 +59,10 @@
       <div class="sidebar">
         <div class="config-box">
           <div class="">
-            Configuration or Settings
+            History
           </div>
-          <div class="">
-            <%= svg_asset("settings-gears", class:"config-box__icon") %>
+          <div class="history">
+            <%#= svg_asset("settings-gears", class:"config-box__icon") %>
           </div>
         </div>
       </div>

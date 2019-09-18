@@ -1,16 +1,18 @@
-<section class= "universal-container">
+<section class= "universal-container" id= "universal-content" >
     <div class="universal-pagetitle">
         Your Business Model(s) 
     </div>
 
-    <div class="universal-form">
+    <div class="universal-form" id= "universal-content_form">
+        <ol>
         <% @businesses.each do |b| %>
-            <ol>
+            
                 <li>
                     <%= link_to b.name, business_path(b) %> - <%= link_to 'Edit', edit_business_path(b) %>
                 </li>
-            </ol>
+            
         <% end %>
+        </ol>
         <div class="link-align">
             <%= button_to ' New Business', new_business_path, method: :get, class: 'sub-btn'%>
         </div> 
