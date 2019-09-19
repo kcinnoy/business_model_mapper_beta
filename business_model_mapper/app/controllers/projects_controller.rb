@@ -36,6 +36,15 @@ class ProjectsController < ApplicationController
     def show
         @projects = Project.all
         @project = Project.find(params[:id])
+        respond_to do |format|
+            format.html
+            format.json {render json: @project}
+        end
+    end
+
+    def next
+        @next_project = @project.next
+        render json: @next_project
     end
 
     def edit

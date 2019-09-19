@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   root 'welcome#home'
   
   devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
-  # devise_for :users, :controllers => { registrations: 'registrations'}
-
-  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
 
   resources :businesses
   resources :strategic_goals, only: [:new, :create, :show] do
@@ -15,12 +11,9 @@ Rails.application.routes.draw do
   resources :resources, only: [:new, :create, :show, :edit, :destroy] do
     resources :invoices
   end
-  
+
+  get 'projects/:id/next', to: 'preojects#next'
+
   get '/most-expensive' => 'resources#expensive'
 
-  # resources :users, only: [:new, :create, :show]
-  # get '/signin' => 'session#new'
-  # post '/signin' => 'session#create'
-  # get '/logout' => 'session#destroy'
-  # post '/rides' => 'business#create'
 end

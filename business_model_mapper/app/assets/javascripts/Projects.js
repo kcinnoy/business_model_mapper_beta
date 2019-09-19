@@ -1,15 +1,15 @@
-$(() => {
-    bindClickHandlers()
-})
+// $(() => {
+//     xbindClickHandlers()
+// })
   
   //ES6 syntax 'arrow functions'
-  const bindClickHandlers = () => {
-    $('.user-nav_businesses').on('click', e => {
-        e.preventDefault()
-        console.log("hello")
-        history.pushState(null, null, "businesses")
-        getBusinesses()
-    })
+//   const xbindClickHandlers = () => {
+//     $('#show-project-btn').on('click', e => {
+//         e.preventDefault()
+//         console.log("hello")
+        // history.pushState(null, null, "businesses")
+        // getBusinesses()
+    // })
 
     function Business(business) {
         this.id = business.id
@@ -35,29 +35,29 @@ $(() => {
     return businessProtoHtml
     }
       
-//     $(document).on('click', ".show_link", function(e) {
-//       e.preventDefault()
-//       $('#app-container').html('')
-//       let id = $(this).attr('data-id')
-//       fetch(`/posts/${id}.json`)
-//       .then(res => res.json())
-//       .then(post => {
-//         let newPost = new Post(post)
+    // $(document).on('click', ".show_link", function(e) {
+    //   e.preventDefault()
+    //   $('#app-container').html('')
+    //   let id = $(this).attr('data-id')
+    //   fetch(`/posts/${id}.json`)
+    //   .then(res => res.json())
+    //   .then(post => {
+    //     let newPost = new Post(post)
   
-//         let postHtml = newPost.formatShow()
+    //     let postHtml = newPost.formatShow()
   
-//         $('#app-container').append(postHtml)
-//       })
-//     })
+    //     $('#app-container').append(postHtml)
+    //   })
+    // })
   
-//     $(document).on('click', 'next-post', function() {
-//       let id = $(this).attr('data-id')
-//       fetch(`posts/${id}/next`)
+    $(document).on('click', 'next-post', function() {
+      let id = $(this).attr('data-id')
+      fetch(`posts/${id}/next`)
   
-//     })
-//   }
+    })
   
-  const getBusinesses = () => {
+  
+  const getProject = () => {
     fetch(`/businesses.json`)
       .then(response => response.json())
       .then(businesses => {
@@ -74,12 +74,6 @@ $(() => {
   
 
   
-//   Post.prototype.formatShow = function(){
-//     let postHtml = `
-//       <h3>${this.title}</h3>
-//       <button class="next-post">Next</button>
-//     `
-//     return postHtml
-//   }
 
-  }
+
+  

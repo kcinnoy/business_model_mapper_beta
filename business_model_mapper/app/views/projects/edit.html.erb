@@ -54,6 +54,11 @@
         </div>
 
         <% end %>
+
+        <div class="delete-button">
+            <%= button_to 'Show' ' Project', strategic_goal_project_path(@strategic_goal, @project),method: :get, class: 'del-btn', id: 'show-project-btn'%>
+        </div>
+
         <div class="delete-button">
             <%= button_to 'Delete' ' Project', strategic_goal_project_path(@strategic_goal, @project),method: :delete, class: 'del-btn', data: {confirm: 'Are you sure?' }%>
         </div>
