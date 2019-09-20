@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :invoices
   end
 
-  get 'projects/:id/next', to: 'preojects#next'
+  get 'businesses/:id/next', to: 'businesses#next'
 
   get '/most-expensive' => 'resources#expensive'
 

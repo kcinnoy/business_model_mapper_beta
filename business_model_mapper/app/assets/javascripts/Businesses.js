@@ -6,10 +6,26 @@ $(() => {
   const bindClickHandlers = () => {
     $('.user-nav_businesses').on('click', e => {
         e.preventDefault()
-        console.log("hello")
-        history.pushState(null, null, "businesses")
+        console.log("hellox")
+        // history.pushState(null, null, "businesses")
         getBusinesses()
     })
+
+    const getBusinesses = () => {
+      fetch(`/businesses.json`)
+        .then(response => response.json())
+        .then(businesses => {
+           $('.map').empty()
+           businesses.forEach(business => {
+             
+             let newBusiness = new Business(business)
+             let businessHtml = newBusiness.formatIndex()
+    
+             $('.map').append(businessHtml)
+           })
+        })
+    }
+
 
     function Business(business) {
         this.id = business.id
@@ -21,65 +37,87 @@ $(() => {
     //prototype and ES6 syntax 'backticks'
     Business.prototype.formatIndex = function(){
       let businessProtoHtml = `
-        <ol>
-          <li>
-            <a href="/businesses/${this.id}" data-id="${this.id}">${this.name}</a> - <a href="/businesses${this.id}/edit" data-id="${this.id}">Edit</a>  
-          </li>
-        </ol>
 
-        <div class="link-align">
-          <button class="sub-btn">New Business</button>
-        </div> 
+        <section class="universal-container">
+          <div class="universal-pagetitle">
+            Your Business Model(s) 
+          </div>
+
+          <div class="universal-form" id= "universal-content_form">
+            <ol>
+              <li>
+                <a href="/businesses/${this.id}" data-id="${this.id}" class="show_business">${this.name}</a> -- <a href="/businesses${this.id}/edit" data-id="${this.id}">Edit</a>  
+              </li>
+            </ol>
+
+            <div class="link-align">
+              <button class="sub-btn">New Business</button>
+            </div> 
+          </div>
+        </section>
       
     `  
     return businessProtoHtml
     }
       
-//     $(document).on('click', ".show_link", function(e) {
-//       e.preventDefault()
-//       $('#app-container').html('')
-//       let id = $(this).attr('data-id')
-//       fetch(`/posts/${id}.json`)
-//       .then(res => res.json())
-//       .then(post => {
-//         let newPost = new Post(post)
   
-//         let postHtml = newPost.formatShow()
+    Business.prototype.formatShow = function(){
+      let businessShowHtml = `
+        <section class="map-container">
+          <div class="costs-container"> 
+            <div class="costs-container__header">
+              Commited spend
+            </div>
+            <div class="costs-container__body">
+              
+            </div>
+          </div>
+          <div class="tree"> 
+            <ul>
+              <li class="map-body">
+                <div class="business-box">
+                  <div class="business-box__head">
+                    <div class="business-box__head__content">
+                      ${this.name}
+                    </div>
+                  </div>
+                  <div class="business-box__description">
+                    ${this.description}
+                  </div>
+                </div>
+              </li>
+            </ul>
+          
+            
+        </section>
+      `
+      return businessShowHtml
+    }
+
+    $(document).on('click', ".show_business", function(e) {
+      e.preventDefault()
+      $('.map').empty()
+      let id = $(this).attr('data-id')
+      fetch(`/businesses/${id}.json`)
+      .then(res => res.json())
+      .then(businessObj => {
+
+        let newBusinessObj = new Business(businessObj)
+        let businessShowHtml = newBusinessObj.formatShow()
+        console.log(businessShowHtml)
   
-//         $('#app-container').append(postHtml)
-//       })
-//     })
-  
-//     $(document).on('click', 'next-post', function() {
-//       let id = $(this).attr('data-id')
-//       fetch(`posts/${id}/next`)
-  
-//     })
-//   }
-  
-  const getBusinesses = () => {
-    fetch(`/businesses.json`)
-      .then(response => response.json())
-      .then(businesses => {
-         $('#universal-content_form').empty()
-         businesses.forEach(business => {
-           let newBusiness = new Business(business)
-  
-           let businessHtml = newBusiness.formatIndex()
-  
-           $('#universal-content_form').append(businessHtml)
-         })
+        $('.map').append(businessShowHtml)
       })
+    })
+  
+    $(document).on('click', 'next-post', function() {
+      let id = $(this).attr('data-id')
+      fetch(`posts/${id}/next`)
+  
+    })
   }
   
+  
+
 
   
-//   Post.prototype.formatShow = function(){
-//     let postHtml = `
-//       <h3>${this.title}</h3>
-//       <button class="next-post">Next</button>
-//     `
-//     return postHtml
-//   }
-
-  }

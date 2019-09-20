@@ -31,4 +31,14 @@ class Business < ApplicationRecord
     )
   end
 
+  def next
+    project = Project.where("id > ?", id).first
+
+    if project
+      project
+    else
+      Project.first
+    end
+  end
+
 end

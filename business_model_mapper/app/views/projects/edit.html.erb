@@ -56,7 +56,7 @@
         <% end %>
 
         <div class="delete-button">
-            <%= button_to 'Show' ' Project', strategic_goal_project_path(@strategic_goal, @project),method: :get, class: 'del-btn', id: 'show-project-btn'%>
+            <%= button_to 'Show' ' Project', strategic_goal_project_path(@strategic_goal, @project),method: :get, class: 'del-btn', id: 'show-project-btn', strategic_goal_id: @strategic_goal.id, project_id: @project.id%>
         </div>
 
         <div class="delete-button">

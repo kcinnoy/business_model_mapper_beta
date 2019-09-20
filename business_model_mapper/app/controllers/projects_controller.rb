@@ -42,11 +42,6 @@ class ProjectsController < ApplicationController
         end
     end
 
-    def next
-        @next_project = @project.next
-        render json: @next_project
-    end
-
     def edit
         @project = Project.find(params[:id])
         @strategic_goal = StrategicGoal.find(params[:strategic_goal_id])
