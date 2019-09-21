@@ -19,7 +19,8 @@ class BusinessesController < ApplicationController
     @business = Business.new(business_params)
     @business.user = current_user
     if @business.save
-      redirect_to business_path(@business)
+      # redirect_to business_path(@business)
+      render json: @business
     else
       render :new
     end
@@ -33,6 +34,11 @@ class BusinessesController < ApplicationController
         format.html {render :show}
         format.json {render json: @business, status: 200}
       end
+  end
+
+  #Has many through
+  def business_resources
+    @business = Business.find(params[:id])
   end
 
   def next

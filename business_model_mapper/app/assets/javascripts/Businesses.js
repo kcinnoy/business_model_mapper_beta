@@ -7,7 +7,7 @@ $(() => {
     $('.user-nav_businesses').on('click', e => {
         e.preventDefault()
         console.log("hellox")
-        // history.pushState(null, null, "businesses")
+        history.pushState(null, null, "businesses")
         getBusinesses()
     })
 
@@ -15,18 +15,18 @@ $(() => {
       fetch(`/businesses.json`)
         .then(response => response.json())
         .then(businesses => {
-           $('.map').empty()
+           $('#universal-content_form').empty()
            businesses.forEach(business => {
              
              let newBusiness = new Business(business)
              let businessHtml = newBusiness.formatIndex()
     
-             $('.map').append(businessHtml)
+             $('#universal-content_form').append(businessHtml)
            })
         })
     }
 
-
+   
     function Business(business) {
         this.id = business.id
         this.name =  business.name
@@ -36,27 +36,14 @@ $(() => {
 
     //prototype and ES6 syntax 'backticks'
     Business.prototype.formatIndex = function(){
-      let businessProtoHtml = `
-
-        <section class="universal-container">
-          <div class="universal-pagetitle">
-            Your Business Model(s) 
-          </div>
-
-          <div class="universal-form" id= "universal-content_form">
-            <ol>
+      let businessProtoHtml = 
+          `
+            <ul>
               <li>
-                <a href="/businesses/${this.id}" data-id="${this.id}" class="show_business">${this.name}</a> -- <a href="/businesses${this.id}/edit" data-id="${this.id}">Edit</a>  
+                <a href="/businesses/${this.id}" data-id="${this.id}" class="show_business">${this.name}</a> - <a href="/businesses${this.id}/edit" data-id="${this.id}">Edit</a>  
               </li>
-            </ol>
-
-            <div class="link-align">
-              <button class="sub-btn">New Business</button>
-            </div> 
-          </div>
-        </section>
-      
-    `  
+            </ul>
+          `
     return businessProtoHtml
     }
       
@@ -82,13 +69,11 @@ $(() => {
                     </div>
                   </div>
                   <div class="business-box__description">
-                    ${this.description}
+                    ${this.description ? this.description: "TBC" }
                   </div>
                 </div>
               </li>
             </ul>
-          
-            
         </section>
       `
       return businessShowHtml
@@ -110,10 +95,24 @@ $(() => {
       })
     })
   
-    $(document).on('click', 'next-post', function() {
+    $(document).on('click', 'next-business', function() {
       let id = $(this).attr('data-id')
-      fetch(`posts/${id}/next`)
+      fetch(`businesses/${id}/next`)
   
+    })
+
+    $('#new_business').on('submit', function(e) {
+      e.preventDefault()
+      
+      const values = $(this).serialize()
+
+      $.post("/businesses", values).done(function(data) {
+        $('.map').empty()
+        const newBusiness = new Business(data)
+        const newBusinessHtml = newBusiness.formatShow()
+
+        $('.map').append(newBusinessHtml)
+      })
     })
   }
   

@@ -14,12 +14,17 @@ class InvoicesController < ApplicationController
 
   end
 
-
-
-
   def index
     @resource = Resource.find(params[:resource_id])
     @invoices = @resource.invoices
+  end
+
+  def show
+    @invoice = Invoice.find(params[:id])
+    render json: @invoice.to_json(only: [:id, :invoice_code],
+      include: [ business: { only: [:id,:name, :description]},
+      resource: { only: [:id,:name, :resource_type, :total_cost_year, :qty, :all_resource_cost]}]
+    )
   end
 
   def destroy

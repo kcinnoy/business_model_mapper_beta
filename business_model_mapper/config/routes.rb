@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'businesses/:id/next', to: 'businesses#next'
 
+  get 'invoices/:id/show', to: 'invoices#show'
+
   get '/most-expensive' => 'resources#expensive'
 
 end
