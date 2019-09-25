@@ -114,6 +114,16 @@ $(() => {
         $('.map').append(newBusinessHtml)
       })
     })
+
+    $('#sort-btn').on('click', e => {
+      console.log('i work')
+      fetch(`/businesses.json`)
+      .then(response => response.json())
+      .then(businesses => {
+        // console.log(`i am the biz ${businesses}`)
+      })  
+    })
+  
   }
   
   
