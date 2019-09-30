@@ -120,13 +120,21 @@ $(() => {
       fetch(`/businesses.json`)
       .then(response => response.json())
       .then(businesses => {
-        // console.log(`i am the biz ${businesses}`)
+        businesses.sort((a,b) => a.name > b.name ? 1 : -1)
+        console.log(businesses)
+
+         $('#universal-content_form').empty()
+           businesses.forEach(business => {
+             
+             let newBusiness = new Business(business)
+             let businessHtml = newBusiness.formatIndex()
+    
+             $('#universal-content_form').append(businessHtml)
+
       })  
     })
   
-  }
+  })
   
-  
-
-
+}
   
